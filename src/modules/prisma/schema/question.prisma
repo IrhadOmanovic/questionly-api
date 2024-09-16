@@ -1,0 +1,7 @@
+model Question {
+  id                String             @id @default(uuid())
+  text              String
+  author            User @relation(fields: [authorId], references: [id])
+  authorId          String
+  ratings           Rating[]
+}

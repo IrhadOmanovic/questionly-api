@@ -1,0 +1,10 @@
+model Answer {
+  id                String             @id @default(uuid())
+  text              String
+  author            User @relation(fields: [authorId], references: [id])
+  authorId          String
+  parent            Answer? @relation("AnswerReplies", fields: [parentId], references: [id])
+  parentId          String?
+  replies           Answer[]  @relation("AnswerReplies")
+  ratings           Rating[]
+}

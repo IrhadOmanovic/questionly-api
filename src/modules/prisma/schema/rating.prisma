@@ -1,0 +1,11 @@
+model Rating {
+  id                String             @id @default(uuid())
+  rating            Boolean
+  question          Question? @relation(fields: [questionId], references: [id])
+  answer            Answer? @relation(fields: [answerId], references: [id])
+  questionId        String?
+  answerId          String?
+  authorId          String?
+  author            User?  @relation(fields: [authorId], references: [id])
+}
+
